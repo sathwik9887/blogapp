@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Test = () => {
   const [counter, setCounter] = useState(0);
@@ -9,39 +9,42 @@ const Test = () => {
   };
 
   const handleMinus = () => {
-    setCounter(counter - 1);
+    if (counter > 0) {
+      setCounter(counter - 1);
+    }
   };
 
   const handleNameChange = (e) => {
     setName(e.target.value);
   };
 
+  useEffect(() => {
+    document.title = `${name} has clicked ${counter} times`;
+
+    return () => {
+      console.log(`Cleanup for count: ${counter}`);
+    };
+  }, [counter, name]);
+
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <h1 className="text-4xl font-bold mb-5">Counter App</h1>
+    <div>
+      <div className="flex justify-center items-center">
+        <p className="text-4xl">
+          {name} has clicked {counter} times
+        </p>
+      </div>
       <input
         type="text"
-        placeholder="Enter your name"
+        placeholder="Name"
         value={name}
         onChange={handleNameChange}
-        className="border border-gray-300 rounded-md p-2 mb-4 w-64 focus:outline-none focus:ring-2 focus:ring-red-500"
       />
-      <div className="text-3xl font-semibold mb-4">
-        {name
-          ? `${name} clicked the button ${counter} times`
-          : "Enter your name to start!"}
-      </div>
-      <div className="space-x-4">
-        <button
-          onClick={handleAdd}
-          className="bg-red-500 hover:bg-red-600 transition duration-200 py-2 px-4 text-white rounded-md text-2xl shadow-lg"
-        >
+
+      <div className="flex justify-center items-center">
+        <button onClick={handleAdd} className="text-4xl">
           +
         </button>
-        <button
-          onClick={handleMinus}
-          className="bg-gray-500 hover:bg-gray-600 transition duration-200 py-2 px-4 text-white rounded-md text-2xl shadow-lg"
-        >
+        <button onClick={handleMinus} className="text-4xl">
           -
         </button>
       </div>

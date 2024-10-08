@@ -28,7 +28,7 @@ const SubNav = ({
           <input
             type="text"
             placeholder="Search..."
-            className="w-full lg:w-100 p-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-400"
+            className="w-full lg:w-100 p-1 border rounded-md focus:outline-none focus:ring focus:ring-blue-400"
             value={searchQuery}
             onChange={handleSearchInput}
           />
@@ -43,8 +43,14 @@ const SubNav = ({
                 <option value="action">Action</option>
                 <option value="comedy">Comedy</option>
                 <option value="drama">Drama</option>
-                <option value="horror">Horror</option>
-                <option value="romance">Romance</option>
+                <option value="animation">Animation</option>
+                <option value="drama">Drama</option>
+                <option value="biography">Biography</option>
+                <option value="drama">Drama</option>
+                <option value="crime">Crime</option>
+                <option value="thriller">Thriller</option>
+                <option value="sci-fi">Sci-Fi</option>
+                <option value="adventure">Adventure</option>
               </select>
             </div>
             <div className="flex items-center">

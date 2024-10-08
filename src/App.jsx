@@ -1,14 +1,15 @@
-import Test from "./components/Test";
-import { createContext } from "react";
-
-export const LoginContext = createContext();
+import Footer from "./components/Footer";
+import MoviePage from "./components/MoviePage";
+import Navbar from "./components/Navbar";
+import Section from "./components/Section";
+import SubNav from "./components/SubNav";
 
 function App() {
   return (
     <div>
-      <LoginContext.Provider value={true}>
-        <Test />
-      </LoginContext.Provider>
+      <Navbar />
+      <MoviePage />
+      <Footer />
     </div>
   );
 }

@@ -44,7 +44,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center py-5 px-4 bg-black shadow-lg lg:px-40 md:px-20 sm:px-20">
       <div className="flex justify-between items-center  w-full overflow-hidden">
         <span className="lg:w-full  h-auto px-5 lg:text-2xl text-xl font-semibold text-gray-300 uppercase">
-          Movie Media
+          ToDo-List
         </span>
         <div className="flex justify-center items-center space-x-4">
           {icons.map((icon) => (

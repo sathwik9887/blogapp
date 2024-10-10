@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Logo from "../assets/logo.png";
 import { LuMenu, LuX } from "react-icons/lu";
 import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 
@@ -26,6 +27,29 @@ const Navbar = () => {
     },
   ];
 
+  const menus = [
+    {
+      id: 1,
+      name: "Home",
+    },
+    {
+      id: 2,
+      name: "Services",
+    },
+    {
+      id: 3,
+      name: "About",
+    },
+    {
+      id: 4,
+      name: "Blog",
+    },
+    {
+      id: 5,
+      name: "Contact",
+    },
+  ];
+
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 1024) {
@@ -41,23 +65,34 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center py-5 px-4 bg-black shadow-lg lg:px-40 md:px-20 sm:px-20">
-      <div className="flex justify-between items-center  w-full overflow-hidden">
-        <span className="lg:w-full  h-auto px-5 lg:text-2xl text-xl font-semibold text-gray-300 uppercase">
-          ToDo-List
-        </span>
-        <div className="flex justify-center items-center space-x-4">
-          {icons.map((icon) => (
-            <a
-              href={icon.link}
-              key={icon.id}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white text-xl cursor-pointer"
+    <nav className="lg:px-40 md:px-40 px-5 bg-gray-300">
+      <div className="flex justify-between items-center w-full overflow-hidden">
+        <img src={Logo} alt="Logo" width={100} />
+        <ul className="hidden lg:flex space-x-10">
+          {menus.map((menu, id) => (
+            <li
+              className={`cursor-pointer text-base font-medium border-b-2 ${
+                menu.name === "Home"
+                  ? "border-orange-600"
+                  : "border-transparent"
+              } hover:border-orange-600 transition-colors`}
+              key={id}
             >
-              {icon.icon}
-            </a>
+              {menu.name}
+            </li>
           ))}
+        </ul>
+        <div className="flex justify-between items-center gap-5 overflow-hidden">
+          <ul className="flex space-x-3 text-black">
+            {icons.map((icon, id) => (
+              <li className="cursor-pointer text-lg font-normal" key={id}>
+                {icon.icon}
+              </li>
+            ))}
+          </ul>
+          <button className="bg-orange-500 px-5 py-2 sm:px-4 sm:py-2 md:px-6 md:py-2 rounded-md text-white text-base hover:bg-orange-600 transition-colors">
+            Log In
+          </button>
         </div>
       </div>
     </nav>
